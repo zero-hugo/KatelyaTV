@@ -3,6 +3,7 @@
 ## 🚨 问题描述
 
 构建失败，错误信息：
+
 ```
 Error: EPERM: operation not permitted, symlink
 ```
@@ -20,7 +21,7 @@ Error: EPERM: operation not permitted, symlink
 const nextConfig = {
   // 临时注释掉 standalone 配置以避免 Windows 权限问题
   // output: 'standalone',
-  
+
   // 其他配置保持不变...
   experimental: {
     outputFileTracingExcludes: {
@@ -67,6 +68,7 @@ module.exports = nextConfig;
 ```
 
 然后使用：
+
 ```powershell
 npm run build:win
 ```
@@ -74,12 +76,15 @@ npm run build:win
 ## 🎯 针对不同部署环境的建议
 
 ### 对于本地开发
+
 使用方案 1（禁用 standalone）+ 方案 3（开发者模式）
 
 ### 对于 Cloudflare Pages 部署
+
 不需要修改，Cloudflare Pages 会自动处理构建环境，不会有 Windows 权限问题
 
 ### 对于 Docker 部署
+
 Docker 环境中不会有此问题，保持原配置即可
 
 ## 🔍 验证解决方案
@@ -95,6 +100,7 @@ npm run build
 ```
 
 如果成功，应该看到：
+
 ```
 ✓ Compiled successfully
 ✓ Linting and checking validity of types

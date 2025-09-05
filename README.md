@@ -6,10 +6,12 @@
   <p>基于 <code>Next.js 14</code> · <code>TypeScript</code> · <code>Tailwind CSS</code> · 多源聚合 / 播放记录 / 收藏同步 / 跳过片头片尾 / PWA</p>
   
   <p>
+    <a href="DOCS_INDEX.md">📖 快速索引</a> ·
     <a href="#-快速开始">🚀 快速开始</a> ·
     <a href="#-功能特性">✨ 功能特性</a> ·
     <a href="#-部署方案">📋 部署方案</a> ·
-    <a href="#-配置说明">⚙️ 配置说明</a>
+    <a href="#-故障排除">🔧 故障排除</a> ·
+    <a href="#-扩展文档">📚 文档索引</a>
   </p>
 </div>
 
@@ -927,10 +929,53 @@ server {
 - [💾 Kvrocks 高性能部署](docs/KVROCKS.md)
 - [🗄️ D1 数据库迁移指南](D1_MIGRATION.md)
 
+**🔒 成人内容过滤系统**：
+
+- [🛡️ 成人内容过滤完整解决方案](ADULT_CONTENT_FILTER_SOLUTION.md) - 系统架构与实现原理
+- [⚗️ 成人内容过滤功能验证指南](ADULT_CONTENT_FILTER_TEST.md) - 功能测试与验证
+- [☁️ Cloudflare Pages 成人内容过滤配置](CLOUDFLARE_PAGES_ADULT_FILTER.md) - 专门的 Pages 部署指南
+
 **故障排除**：
 
 - [🔧 Docker 故障排除手册](DOCKER_TROUBLESHOOTING.md)
 - [⚠️ 兼容性问题解决](DEPLOYMENT_COMPATIBILITY.md)
+
+### 🚨 部署问题修复指南
+
+**🏗️ 构建与部署错误**：
+
+- [🔧 Windows 构建权限问题修复](WINDOWS_BUILD_FIX.md) - Windows 系统构建失败解决方案
+- [☁️ Cloudflare Pages 部署修复](CLOUDFLARE_PAGES_FIX.md) - Pages 部署问题完整解决
+- [⚙️ wrangler.toml 配置修复](WRANGLER_TOML_FIX.md) - 配置文件兼容性问题
+
+**🗄️ 数据库问题修复**：
+
+- [🔍 D1 数据库检查与修复指南](D1_DATABASE_CHECK.md) - 数据库诊断与修复
+- [🆔 D1 数据库 ID 配置修复](D1_DATABASE_ID_FIX.md) - 数据库绑定问题解决
+- [⚙️ 管理员配置修复](ADMIN_CONFIG_FIX.md) - admin_config 表问题解决
+
+**📺 TVBox 配置问题**：
+
+- [📱 TVBox 配置修复指南](docs/TVBOX_CONFIG_FIX.md) - TVBox 兼容性问题解决
+
+### 🎯 文档使用指南
+
+**📋 按问题类型查找**：
+
+| 问题类型                         | 推荐文档                                                     | 适用场景                     |
+| -------------------------------- | ------------------------------------------------------------ | ---------------------------- |
+| 🔒 **成人内容过滤不工作**        | [成人内容过滤完整解决方案](ADULT_CONTENT_FILTER_SOLUTION.md) | 过滤功能卡住、开关无效       |
+| ☁️ **Cloudflare Pages 部署失败** | [Cloudflare Pages 部署修复](CLOUDFLARE_PAGES_FIX.md)         | wrangler.toml 错误、构建失败 |
+| 🗄️ **管理员页面打不开**          | [D1 数据库检查与修复指南](D1_DATABASE_CHECK.md)              | "获取配置失败"错误           |
+| 🏗️ **Windows 本地构建失败**      | [Windows 构建权限问题修复](WINDOWS_BUILD_FIX.md)             | EPERM 权限错误               |
+| 🆔 **数据库连接失败**            | [D1 数据库 ID 配置修复](D1_DATABASE_ID_FIX.md)               | Invalid database UUID        |
+| 📱 **TVBox 配置生成失败**        | [TVBox 配置修复指南](docs/TVBOX_CONFIG_FIX.md)               | 配置接口异常                 |
+
+**🚀 按部署平台查找**：
+
+- **Cloudflare Pages**: [Cloudflare Pages 部署修复](CLOUDFLARE_PAGES_FIX.md) + [Cloudflare Pages 成人内容过滤配置](CLOUDFLARE_PAGES_ADULT_FILTER.md)
+- **Windows 开发环境**: [Windows 构建权限问题修复](WINDOWS_BUILD_FIX.md)
+- **D1 数据库相关**: [D1 数据库检查与修复指南](D1_DATABASE_CHECK.md) + [D1 数据库迁移指南](D1_MIGRATION.md)
 
 ### 🎯 最佳实践
 

@@ -20,6 +20,7 @@ SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;
 ```
 
 **应该包含的表：**
+
 - `admin_configs` (新表名，推荐)
 - `admin_config` (旧表名，兼容性)
 - `favorites`
@@ -88,11 +89,11 @@ CREATE TABLE IF NOT EXISTS user_settings (
 ```sql
 -- 如果存在旧的 admin_config 表，迁移数据
 INSERT OR IGNORE INTO admin_configs (config_key, config_value, description)
-SELECT 
+SELECT
   'main_config' as config_key,
   config as config_value,
   '从旧表迁移的管理员配置' as description
-FROM admin_config 
+FROM admin_config
 WHERE id = 1;
 ```
 
@@ -124,6 +125,7 @@ CREATE INDEX IF NOT EXISTS idx_admin_configs_key ON admin_configs(config_key);
 **原因**：缺少 `admin_configs` 表或表为空
 
 **解决方案**：
+
 1. 执行上述步骤 1 和步骤 3
 2. 验证数据是否插入成功：
    ```sql
@@ -136,6 +138,7 @@ CREATE INDEX IF NOT EXISTS idx_admin_configs_key ON admin_configs(config_key);
 **原因**：两个表都不存在或都无法访问
 
 **解决方案**：
+
 1. 确认 D1 数据库绑定正确配置在 wrangler.toml 中
 2. 检查环境变量是否正确设置
 3. 重新创建 admin_configs 表
@@ -172,6 +175,7 @@ PRAGMA table_info(admin_configs);
 访问测试端点：`/api/test/admin-config`
 
 应该返回：
+
 ```json
 {
   "success": true,
@@ -209,11 +213,11 @@ INSERT OR IGNORE INTO admin_configs (config_key, config_value, description) VALU
 
 -- 如果存在旧表，迁移数据
 INSERT OR IGNORE INTO admin_configs (config_key, config_value, description)
-SELECT 
+SELECT
   'main_config' as config_key,
   config as config_value,
   '从旧表迁移的管理员配置' as description
-FROM admin_config 
+FROM admin_config
 WHERE id = 1;
 
 -- 创建索引

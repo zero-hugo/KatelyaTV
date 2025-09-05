@@ -3,6 +3,7 @@
 ## 🚨 问题原因
 
 Cloudflare Pages 部署失败，错误信息：
+
 - "Unexpected fields found in build field: environment, environment_variables"
 - "Configuration file for Pages projects does not support 'build'"
 
@@ -11,6 +12,7 @@ Cloudflare Pages 部署失败，错误信息：
 ## ✅ 已修复的问题
 
 ### 删除的不兼容配置：
+
 ```toml
 # ❌ 这些配置在 Cloudflare Pages 中不被支持，已删除
 [build]
@@ -23,6 +25,7 @@ value = "--prefix=/opt/buildhome/.asdf/installs/nodejs/18.17.1/.npm"
 ```
 
 ### ✅ 保留的正确配置：
+
 - `name = "katelyatv"`
 - `compatibility_date = "2024-09-01"`
 - `pages_build_output_dir = ".vercel/output/static"`
@@ -42,7 +45,9 @@ value = "--prefix=/opt/buildhome/.asdf/installs/nodejs/18.17.1/.npm"
 5. **Node.js version**: `18.x`
 
 ### 环境变量设置：
+
 在 Cloudflare Pages → Settings → Environment variables 中添加：
+
 ```
 NEXT_PUBLIC_STORAGE_TYPE = d1
 NEXT_PUBLIC_SITE_NAME = KatelyaTV
@@ -57,6 +62,7 @@ NODE_ENV = production
 3. ✅ **Edge Runtime 已配置** - 所有 API 路由都有正确的运行时配置
 
 ### 下一步：
+
 1. 提交修复后的 wrangler.toml 到 GitHub
 2. 在 Cloudflare Pages 中重新触发部署
 3. 确认 D1 数据库正确绑定到 Pages 项目
@@ -64,6 +70,7 @@ NODE_ENV = production
 ## 📋 验证清单
 
 部署成功后，验证以下功能：
+
 - [ ] 网站首页正常加载
 - [ ] `/admin` 页面不再显示"获取配置失败"
 - [ ] API 端点正常工作
