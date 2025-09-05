@@ -3,6 +3,8 @@ import { NextRequest, NextResponse } from 'next/server';
 
 import { getStorage } from '@/lib/db';
 
+export const runtime = 'edge';
+
 // 检查是否为站长账户
 function isOwnerAccount(username: string): boolean {
   const ownerUsername = process.env.USERNAME || 'admin';
